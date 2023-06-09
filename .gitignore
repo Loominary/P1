@@ -1,0 +1,7 @@
+.vscode
+.idea
+/node_modules/
+server/config/
+/exports/
+node_modules/
+/config
