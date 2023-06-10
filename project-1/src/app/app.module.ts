@@ -5,10 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuillModule } from 'ngx-quill';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TemplatesComponent } from './templates/templates.component';
+import { QuillEditorComponent } from './quill-editor/quill-editor.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TemplatesComponent,
+    QuillEditorComponent
   ],
   imports: [
     BrowserModule,
