@@ -7,8 +7,9 @@ import { Observable } from 'rxjs';
   selector: 'app-display-form',
   template: `
     <div>
-      <h2>Job Application for Heroes</h2>
+      <h2>Testing Forms</h2>
       <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
+      <app-attempt1></app-attempt1>
     </div>
   `,
   providers:  [DataService],

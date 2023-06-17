@@ -1,0 +1,12 @@
+<p>attempt1 works!</p>
+
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
+        
+  <div [formGroup]="form">
+    <input formControlName="firstName">
+  </div>
+    <button type="submit">Submit</button>
+</form>
+
+<button type="submit" (click)="filterFound()">Filter Button</button>
+<!-- <button type="submit" (click)="replaceFound()">Replace Button</button> -->

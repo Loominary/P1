@@ -17,7 +17,8 @@ export class DataService {
 
       new DropdownModule({
         key: 'brave',
-        label: 'Bravery Rating',
+        label: 'A drop down',
+        value: 'Great',
         options: [
           {key: 'solid',  value: 'Solid'},
           {key: 'great',  value: 'Great'},
@@ -28,16 +29,17 @@ export class DataService {
       }),
 
       new TextboxModule({
-        key: 'firstName',
-        label: 'First name',
-        value: 'Bombasto',
+        key: 'name',
+        label: 'Your name',
+        value: 'Shira',
         required: true,
         order: 1
       }),
 
       new TextboxModule({
-        key: 'emailAddress',
-        label: 'Email',
+        key: 'dog',
+        label: 'Your dog name',
+        value: 'Pooster',
         type: 'email',
         order: 2
       })
