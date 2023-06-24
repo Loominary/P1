@@ -13,8 +13,9 @@ export class DynamicFormComponent implements OnInit {
   form!: FormGroup;
   payLoad = '';
   results!: string;
-  replaceables = [''];
-  fullObj=[''];
+  replaceables:string[] =[''];
+  fullObj:{ [key: string]: string }[] = [];
+  currentEntry!:string;
   replaced!:string;
   
 
@@ -45,29 +46,52 @@ export class DynamicFormComponent implements OnInit {
     this.results = this.form.getRawValue();
 
     let found = this.someData.match(this.regex);
+    console.log(found);
+    
+console.log(this.results);
 
 
+const resultValues = Object.values(this.results);
+const resultKeys = Object.keys(this.results);
+const entries2 = Object.entries(this.results);
+console.log(entries2);
 
-    for (const [key, value] of Object.entries(this.results)) {
+this.replaceables.forEach(item=>{
+  const [key, value] = item.split(':').map(str=>str.trim());
+  if(key && value){
+    const obj = {[key]:value};
+    this.fullObj.push(obj);
+    console.log(this.fullObj);
+    
+  }
+});
+
+
+    /* for (const [key, value] of Object.entries(this.results)) {
       //this.replaceables.push(`${value}`);
+      console.log('aaa '+ key, value);
       
       const entries = new Map([
         [key, value]
       ])
-      const obj = Object.fromEntries(entries);
-      this.replaceables.push(value);
-      //this.fullObj.push(obj)
-      //console.log(entries);
+      const obj = Object.fromEntries(entries2);
+      console.log(obj );
       
-      console.log(obj);
       
-      console.log(key, value);
-      //console.log(Object.fromEntries());
+      this.replaceables.push(`${key}:${value}`);
+      
+      console.log(this.replaceables);
+     
        
-    }
+    } */
     
+    
+    
+
     for (let i = 0; i < this.replaceables.length; i++) {
+      
       console.log(this.replaceables[i]);
+      console.log('full obj ' + this.fullObj);
       
       
     }
