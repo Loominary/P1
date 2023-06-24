@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { Classes } from '../shared/classes';
+import { Classes } from '../../shared/classes';
 
 @Component({
   selector: 'app-templates',

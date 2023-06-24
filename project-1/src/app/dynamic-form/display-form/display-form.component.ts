@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { DataService } from '../shared/data.service';
-import { Classes } from '../shared/classes';
+
 import { Observable } from 'rxjs';
+import { Classes } from 'src/app/shared/classes';
+import { DataService } from 'src/app/shared/data.service';
 
 @Component({
   selector: 'app-display-form',
   template: `
     <div>
       <h2>Testing Forms</h2>
-      <app-dynamic-form [questions]="questions$ | async"></app-dynamic-form>
-      <app-attempt1></app-attempt1>
+      <app-dynamic-form  [questions]="questions$ | async"></app-dynamic-form>
     </div>
+    <app-quill-editor ></app-quill-editor>
   `,
   providers:  [DataService],
   //templateUrl: './display-form.component.html',
@@ -23,3 +24,6 @@ export class DisplayFormComponent {
     this.questions$ = service.getQuestions();
   }
 }
+/*   
+[content]="quillContent"
+(dataChanged)="updateQuillContent($any($event))" */

@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { Classes } from '../shared/classes';
 import { FormControlService } from '../shared/form-control.service';
+import Quill from 'quill';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -10,12 +11,16 @@ import { FormControlService } from '../shared/form-control.service';
 })
 export class DynamicFormComponent implements OnInit {
   @Input() questions: Classes<string>[] | null = [];
+  @Output() dataChanged = new EventEmitter<string>();
+
   form!: FormGroup;
   payLoad = '';
   results!: string;
   replaceables: string[] = [''];
   fullObj: { [key: string]: string }[] = [];
-  currentEntry!: string;
+  
+ 
+
   replaced!: string;
   toBeReplaced:string[] = [''];
 
@@ -42,8 +47,11 @@ export class DynamicFormComponent implements OnInit {
     }
   } */
 
+
+  //to do: reload payload on submit, return a markdown block(?)
   onSubmit() {
     this.results = this.form.getRawValue();
+    console.log(this.results);
     
     const entries2 = Object.entries(this.results);
  
@@ -63,7 +71,7 @@ export class DynamicFormComponent implements OnInit {
       }
     });
 
-    //Match and replace replacesables matching form entries
+    //Match and replace replaceables matching obj entries
     const replacedData = this.someData.replace(this.regex, (match: string, placeholder: string) => {
       for (const entry of this.fullObj) {
         if (entry.hasOwnProperty(placeholder)) {
@@ -72,8 +80,11 @@ export class DynamicFormComponent implements OnInit {
       }
       return match; // Placeholder not found in formEntries, keep original placeholder
     });
- 
-    this.payLoad = JSON.stringify(replacedData);
+    /* const delta = this.quill.clipboard.convert(replacedData);
+    this.quill.setContents(delta) */
+    this.payLoad =JSON.stringify(replacedData); 
+   /*  const newData:string="Some data to editor";
+    this.dataChanged.emit(newData); */
   }
 }
 

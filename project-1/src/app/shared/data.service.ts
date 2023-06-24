@@ -31,7 +31,7 @@ export class DataService {
       new TextboxModule({
         key: 'name',
         label: 'Your name',
-        value: 'Shira',
+        value: '',
         required: true,
         order: 1
       }),
@@ -39,7 +39,7 @@ export class DataService {
       new TextboxModule({
         key: 'dog',
         label: 'Your dog name',
-        value: 'Pooster',
+        value: '',
         type: 'email',
         order: 2
       })

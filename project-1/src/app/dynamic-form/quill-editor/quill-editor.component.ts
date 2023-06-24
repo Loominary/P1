@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Delta } from 'quill';
 
@@ -8,7 +8,7 @@ import { Delta } from 'quill';
   styleUrls: ['./quill-editor.component.less']
 })
 export class QuillEditorComponent implements OnInit {
- 
+  @Input() content: string | undefined;
   editorForm!: FormGroup;
   editorContent!:string;
   editorStyle ={

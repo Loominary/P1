@@ -7,34 +7,12 @@ import { Delta } from 'quill';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less']
 })
-export class AppComponent implements OnInit {
- 
-  /* editorForm!: FormGroup;
-  editorContent!:string;
-  editorStyle ={
-    height: '400px;',
-    width: '300px;'
+export class AppComponent {
+  quillContent!: string;
+
+/*   updateQuillContent(content: string) {
+    this.quillContent = content;
   } */
-  //formData = this.editorForm.get('editor')?.value;
-constructor(){
-  //this.editorForm.value= 'new FormGroup';
-}
 
-  ngOnInit(): void {   
-   /*  this.editorForm = new FormGroup({
-    'editor': new FormControl(null)
-  }) */
-}
-
-
-
-/*   onSubmit(){
-  
-     console.log(this.editorForm.get('editor')?.value);
-     this.editorContent = this.editorForm.get('editor')?.value;
-     
-
-    
-  } */
   title = 'project-1';
 }
